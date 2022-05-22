@@ -8,7 +8,10 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  
+  const customLoader = ({ src }) => {
+    return src
+  }
   const clearData = (event) => {
     setData([])
     setIsLoading(false)
@@ -72,7 +75,7 @@ export default function Home() {
           <div className="relative bg-shopifyslate px-6 pt-10 pb-8 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10 ">
 
             <div className="mx-auto max-w-md">
-              <Image src={shopifyPic} alt="Shopify Rebellion Logo" layout="fixed" width="40px" height="50px" /> 
+              <Image src={shopifyPic} alt="Shopify Rebellion Logo" layout="fixed" width="40px" height="50px" loader={customLoader}/> 
               <p className="text-6xl font-semibold text-shopifywhite inline">Shopify</p>
               <div className="divide-y">
                 <div className="py-2 text-base leading-7 text-shopifywhite">
